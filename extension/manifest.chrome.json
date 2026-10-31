@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "TrackLess",
+  "version": "1.0.0",
+  "description": "Bloque des domaines connus de tracking et de fingerprinting, avec un relevé récent par onglet.",
+  "minimum_chrome_version": "120",
+  "permissions": ["storage", "activeTab", "declarativeNetRequest"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_title": "TrackLess",
+    "default_popup": "popup.html",
+    "default_icon": { "16": "icons/16.png", "32": "icons/32.png" }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "options_ui": { "page": "options.html", "open_in_tab": true },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; base-uri 'none'"
+  }
+}

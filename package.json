@@ -1,0 +1,25 @@
+{
+  "name": "trackless",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.js",
+    "check": "npm test && npm run build",
+    "package": "node scripts/package.mjs"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "sass": "1.107.1",
+    "fflate": "^0.8.2"
+  }
+}

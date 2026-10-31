@@ -1,0 +1,21 @@
+name: Checks
+on: [push, pull_request]
+jobs:
+  extension:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run package
+      - run: unzip -t artifacts/trackless-chrome.zip
+      - run: unzip -t artifacts/trackless-firefox.zip
+      - run: npm audit --audit-level=moderate
+      - uses: actions/upload-artifact@v4
+        with:
+          name: trackless-extensions
+          path: artifacts/*.zip
